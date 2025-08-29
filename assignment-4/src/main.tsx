@@ -5,6 +5,8 @@ import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import SuspenseWrapper from "./layout/withSuspense.tsx";
 
+const placeHolderImport= lazy(()=>import("./layout/withSuspense.tsx"))
+
 const router = createBrowserRouter([
   {
     path: "/",
