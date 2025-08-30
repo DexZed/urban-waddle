@@ -6,14 +6,10 @@ function BorrowSummary() {
     data: summary,
     error,
     isLoading,
-  } = useGetBorrowSummaryQuery(undefined,
-    {
-      refetchOnMountOrArgChange: true,
-      refetchOnReconnect: true,
-      
-      
-    }
-  );
+  } = useGetBorrowSummaryQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+    refetchOnReconnect: true,
+  });
 
   return (
     <>
@@ -27,7 +23,8 @@ function BorrowSummary() {
         </>
       ) : (
         <>
-            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+          <article className="h-dvh flex justify-center items-center">
+            <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 w-full h-full">
               <table className="table">
                 {/* head */}
                 <thead>
@@ -52,7 +49,8 @@ function BorrowSummary() {
                 </tbody>
               </table>
             </div>
-          </>
+          </article>
+        </>
       )}
     </>
   );
