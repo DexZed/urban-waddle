@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import SuspenseWrapper from "./layout/withSuspense.tsx";
-import  { Provider } from "react-redux";
+import { Provider } from "react-redux";
 import { store } from "./app/store.ts";
 
 const Library = lazy(() => import("./pages/Library.tsx"));
@@ -16,13 +16,17 @@ const EditBook = lazy(() => import("./pages/EditBook.tsx"));
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <SuspenseWrapper><App /></SuspenseWrapper>,
+    element: (
+      <SuspenseWrapper>
+        <App />
+      </SuspenseWrapper>
+    ),
     children: [
       {
         index: true,
         element: (
           <SuspenseWrapper>
-            <Library/>
+            <Library />
           </SuspenseWrapper>
         ),
       },
@@ -30,7 +34,7 @@ const router = createBrowserRouter([
         path: "create-book",
         element: (
           <SuspenseWrapper>
-            <CreateBook/>
+            <CreateBook />
           </SuspenseWrapper>
         ),
       },
@@ -38,7 +42,7 @@ const router = createBrowserRouter([
         path: "edit-book/:id",
         element: (
           <SuspenseWrapper>
-            <EditBook/>
+            <EditBook />
           </SuspenseWrapper>
         ),
       },
@@ -46,7 +50,7 @@ const router = createBrowserRouter([
         path: "borrow/:id",
         element: (
           <SuspenseWrapper>
-           <Borrow/>
+            <Borrow />
           </SuspenseWrapper>
         ),
       },
@@ -54,7 +58,7 @@ const router = createBrowserRouter([
         path: "books/:id",
         element: (
           <SuspenseWrapper>
-            <BookDetails/>
+            <BookDetails />
           </SuspenseWrapper>
         ),
       },
@@ -62,7 +66,7 @@ const router = createBrowserRouter([
         path: "borrow-summary",
         element: (
           <SuspenseWrapper>
-           <Summary/>
+            <Summary />
           </SuspenseWrapper>
         ),
       },
@@ -72,10 +76,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-     <Provider store={store}>
-
-    <RouterProvider router={router} />
-     </Provider>,
-
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+    ,
   </StrictMode>
 );
