@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import SuspenseWrapper from "./layout/withSuspense.tsx";
 import { Provider } from "react-redux";
 import { store } from "./app/store.ts";
+import Home from "./pages/Home.tsx";
 
 const Library = lazy(() => import("./pages/Library.tsx"));
 const CreateBook = lazy(() => import("./pages/CreateBook.tsx"));
@@ -24,6 +25,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: (
+          <SuspenseWrapper>
+            <Home/>
+          </SuspenseWrapper>
+        ),
+      },
+      {
+        path: "library",
         element: (
           <SuspenseWrapper>
             <Library />

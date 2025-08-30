@@ -51,7 +51,10 @@ function Nav() {
   const links = (
     <>
       <li>
-        <Link to={"/"}>All Books</Link>
+        <Link to={"/"}>Home</Link>
+      </li>
+      <li>
+        <Link to={"/library"}>All Books</Link>
       </li>
 
       <li>

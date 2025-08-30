@@ -68,7 +68,7 @@ function BookDetails() {
               </li>
             </ul>
             <div className="mt-6">
-              <Link to={"/"} className="btn btn-primary btn-block">
+              <Link to={"/library"} className="btn btn-primary btn-block">
                 Go Back
               </Link>
             </div>
