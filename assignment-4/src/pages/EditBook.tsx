@@ -2,8 +2,14 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useAppSelector, useAppDispatch } from "../app/hooks";
 import { prefillBookForm, updateBookForm } from "../features/bookSlice";
-import type { ApiSingleBookResponse, BookForm } from "../interfaces/globalInterfaces";
-import { useUpdateBookMutation, useGetSingleBookQuery } from "../services/bookApiSlice";
+import type {
+  ApiSingleBookResponse,
+  BookForm,
+} from "../interfaces/globalInterfaces";
+import {
+  useUpdateBookMutation,
+  useGetSingleBookQuery,
+} from "../services/bookApiSlice";
 import { showSuccessAlert, showErrorAlert } from "../utilities/utils";
 import AppError from "./AppError";
 
@@ -25,26 +31,28 @@ export default function EditBook() {
     }
   }, [dispatch, response]);
 
-  function handleInputChange( event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-     const { name, type, value } = event.target;
+  function handleInputChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
+    const { name, type, value } = event.target;
 
-  let parsedValue: string | number | boolean = value;
+    let parsedValue: string | number | boolean = value;
 
-  if (type === "checkbox" && event.target instanceof HTMLInputElement) {
-    parsedValue = event.target.checked;
-  } else if (type === "number") {
-    parsedValue = Number(value);
-  } else if (name === "genre") {
-    const upper = value.toUpperCase().replace(/\s/g, "_");
-    parsedValue = upper;
-  }
+    if (type === "checkbox" && event.target instanceof HTMLInputElement) {
+      parsedValue = event.target.checked;
+    } else if (type === "number") {
+      parsedValue = Number(value);
+    } else if (name === "genre") {
+      const upper = value.toUpperCase().replace(/\s/g, "_");
+      parsedValue = upper;
+    }
 
-  dispatch(
-    updateBookForm({
-      field: name as keyof BookForm,
-      value: parsedValue,
-    })
-  );
+    dispatch(
+      updateBookForm({
+        field: name as keyof BookForm,
+        value: parsedValue,
+      })
+    );
   }
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -104,9 +112,9 @@ export default function EditBook() {
                     />
 
                     <label className="label">Genre</label>
-                    
-                    <select 
-                    className="select"
+
+                    <select
+                      className="select"
                       name="genre"
                       value={selector.genre}
                       onChange={handleInputChange}

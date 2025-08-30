@@ -11,34 +11,34 @@ function CreateForm() {
   const dispatch = useAppDispatch();
   const [createBook, { error }] = useCreateBookMutation();
   const navigate = useNavigate();
-  function handleInputChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleInputChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     const { name, type, value } = event.target;
 
-  let parsedValue: string | number | boolean = value;
+    let parsedValue: string | number | boolean = value;
 
-  if (type === "checkbox" && event.target instanceof HTMLInputElement) {
-    parsedValue = event.target.checked;
-  } else if (type === "number") {
-    parsedValue = Number(value);
-  } else if (name === "genre") {
-    const upper = value.toUpperCase().replace(/\s/g, "_");
-    parsedValue = upper;
-  }
-  
-
+    if (type === "checkbox" && event.target instanceof HTMLInputElement) {
+      parsedValue = event.target.checked;
+    } else if (type === "number") {
+      parsedValue = Number(value);
+    } else if (name === "genre") {
+      const upper = value.toUpperCase().replace(/\s/g, "_");
+      parsedValue = upper;
+    }
 
     dispatch(
       updateBookForm({
-            field: name as keyof BookForm,
-            value: parsedValue,
-          })
+        field: name as keyof BookForm,
+        value: parsedValue,
+      })
     );
   }
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-     await createBook(selector).unwrap();
-     showSuccessAlert("Success", "Book created successfully!");
+      await createBook(selector).unwrap();
+      showSuccessAlert("Success", "Book created successfully!");
       navigate("/");
     } catch (err) {
       showErrorAlert("Error", "Failed to create the book.");
@@ -93,9 +93,9 @@ function CreateForm() {
                     />
 
                     <label className="label">Genre</label>
-                    
-                    <select 
-                    className="select"
+
+                    <select
+                      className="select"
                       name="genre"
                       value={selector.genre}
                       onChange={handleInputChange}
