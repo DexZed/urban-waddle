@@ -53,7 +53,7 @@ function ListView() {
                     <th>ISBN</th>
                     <th>Copies</th>
                     <th>Availability</th>
-                    <th>Actions</th>
+                    <th className="text-center">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
