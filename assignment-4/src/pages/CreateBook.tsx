@@ -39,7 +39,7 @@ function CreateForm() {
     try {
       await createBook(selector).unwrap();
       showSuccessAlert("Success", "Book created successfully!");
-      navigate("/library");
+      navigate("/");
     } catch (err) {
       showErrorAlert("Error", "Failed to create the book.");
       console.error("Error occurred in creation:", err);

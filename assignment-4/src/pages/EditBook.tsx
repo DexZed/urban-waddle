@@ -59,7 +59,7 @@ export default function EditBook() {
     try {
       await updateBook(selector).unwrap();
       showSuccessAlert("Success", "Book updated successfully!");
-      navigate("/library");
+      navigate("/");
     } catch (err) {
       showErrorAlert("Error", "Failed to update the book.");
       console.error("Error occurred in creation:", err);
