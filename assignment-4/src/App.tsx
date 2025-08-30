@@ -2,13 +2,15 @@ import { Outlet } from "react-router"
 
 
 function App() {
-  
-
   return (
     <>
-      <Outlet/>
+      <AppContainer>
+        <Nav></Nav>
+        <Outlet></Outlet>
+        <Footer></Footer>
+      </AppContainer>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
