@@ -1,8 +1,6 @@
 import { Link } from "react-router";
 
-type Props = {};
-
-function Nav({}: Props) {
+function Nav() {
   const links = (
     <>
       <li>
