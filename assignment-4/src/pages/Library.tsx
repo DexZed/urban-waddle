@@ -77,44 +77,52 @@ function ListView() {
                             </div>
                           )}
                         </td>
-                        <td className="flex gap-2">
-                          <Link
-                            className="btn btn-warning btn-outline rounded-full"
-                            to={"/books/" + book._id}
-                          >
-                            Details
-                          </Link>
+                        <td className="flex justify-center items-center gap-2 ">
+                          <div>
+                            <Link
+                              className="btn btn-warning btn-outline rounded-full"
+                              to={"/books/" + book._id}
+                            >
+                              Details
+                            </Link>
+                          </div>
 
-                          <Link
-                            className="btn btn-primary btn-outline rounded-full"
-                            to={"/edit-book/" + book._id}
-                          >
-                            Edit
-                          </Link>
+                          <div>
+                            <Link
+                              className="btn btn-primary btn-outline rounded-full"
+                              to={"/edit-book/" + book._id}
+                            >
+                              Edit
+                            </Link>
+                          </div>
 
-                          {book.available ? (
-                            <>
-                              <Link
-                                className="btn btn-secondary btn-outline rounded-full"
-                                to={"/borrow/" + book._id}
-                              >
-                                Borrow
-                              </Link>
-                            </>
-                          ) : (
-                            <>
-                              <ActionButtons
-                                name="Borrow"
-                                color="btn btn-ghost rounded-full"
-                                disabled
-                              ></ActionButtons>
-                            </>
-                          )}
-                          <ActionButtons
-                            name="Delete"
-                            color="btn-accent"
-                            action={() => actionDelete(book._id)}
-                          />
+                          <div>
+                            {book.available ? (
+                              <>
+                                <Link
+                                  className="btn btn-secondary btn-outline rounded-full"
+                                  to={"/borrow/" + book._id}
+                                >
+                                  Borrow
+                                </Link>
+                              </>
+                            ) : (
+                              <>
+                                <ActionButtons
+                                  name="Borrow"
+                                  color="btn btn-ghost rounded-full"
+                                  disabled
+                                ></ActionButtons>
+                              </>
+                            )}
+                          </div>
+                          <div>
+                            <ActionButtons
+                              name="Delete"
+                              color="btn-accent"
+                              action={() => actionDelete(book._id)}
+                            />
+                          </div>
                         </td>
                       </tr>
                     );
