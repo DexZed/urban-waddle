@@ -6,7 +6,7 @@ import type {
   Book,
   Borrow,
   BorrowResponse,
-} from "../utils/Customtypes";
+} from "../interfaces/globalInterfaces";
 // Base URL : https://friendly-fiesta-qsms.onrender.com, http://localhost:3000/api
 // Define a service using a base URL and expected endpoints
 export const bookApi = createApi({

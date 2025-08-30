@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { Book, BookForm } from "../utils/Customtypes";
+import type { Book, BookForm } from "../interfaces/globalInterfaces";
 
 interface BookFormState {
   form: BookForm;
